@@ -12,6 +12,11 @@ public class DBUtils {
 
 	public final static String UPDATE_BOOK = "UPDATE aman_books " + "SET title =?, price =?, author_name=? "
 			+ "WHERE book_id=?";
+	public final static String UPDATE_BOOK_NAME = "UPDATE aman_books SET title=? WHERE book_id=?";
+
+	public final static String UPDATE_BOOK_PRICE = "UPDATE aman_books SET price=? WHERE book_id=?";
+
+	public final static String UPDATE_AUTHOR_NAME = "UPDATE aman_books SET author_name=? WHERE book_id=?";
 
 	public final static String SHOW_BOOK_DETAILS = "SELECT * FROM aman_books WHERE book_id=?";
 	public final static String REMOVE_BOOK = "DELETE FROM aman_books WHERE book_id=? ";
@@ -48,8 +53,8 @@ public class DBUtils {
 	public static String getPassword() {
 		return PASSWORD;
 	}
-	
+
 	public static void main(String[] args) {
-		System.out.println(URL+ "   ->    "+USERNAME+"  ->   "+PASSWORD);
+		System.out.println(URL + "   ->    " + USERNAME + "  ->   " + PASSWORD);
 	}
 }
