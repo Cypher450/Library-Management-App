@@ -8,8 +8,10 @@ import backend.dao.BookDaoImpl;
 import backend.dao.entity.Books;
 
 public class UpdateBook {
-	public static void updateBook() {
-		Scanner sc = new Scanner(System.in);
+	
+	
+	public static void updateBook(Scanner sc) {
+		//Scanner sc = new Scanner(System.in);
 
 		int book_id = HomeMenu.compatibleBookId();
 

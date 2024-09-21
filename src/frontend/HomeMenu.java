@@ -101,13 +101,13 @@ public class HomeMenu {
 			AddBook.addBook(sc);
 			break;
 		case 2:
-			UpdateBook.updateBook();
+			UpdateBook.updateBook(sc);
 			break;
 		case 3:
 			DeleteBook.deleteBook(sc);
 			break;
 		case 4:
-			ViewBook.viewBook();
+			ViewBook.viewBook(sc);
 			break;
 		case 5:
 			ViewAllBooks.viewAllBooks();
