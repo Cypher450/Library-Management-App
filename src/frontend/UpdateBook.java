@@ -17,7 +17,7 @@ public class UpdateBook {
 
 		BookDao dao = new BookDaoImpl();
 		try {
-			Books book = dao.showBookById(book_id);
+			dao.showBookById(book_id);
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
