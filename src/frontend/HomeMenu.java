@@ -1,6 +1,7 @@
 package frontend;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.SQLSyntaxErrorException;
@@ -110,7 +111,7 @@ public class HomeMenu {
 			ViewBook.viewBook(sc);
 			break;
 		case 5:
-			ViewAllBooks.viewAllBooks();
+			ViewAllBooks.viewAllBooks(sc);
 			break;
 		case 6:
 
@@ -122,7 +123,7 @@ public class HomeMenu {
 	}
 
 	public static double compatiblePrice() {
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 		double price = 0;
 		boolean validInput = false;
 
@@ -140,7 +141,7 @@ public class HomeMenu {
 	}
 
 	public static int compatibleBookId() {
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 
 		int book_id = 0;
 		boolean validInput = false;
