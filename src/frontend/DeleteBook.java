@@ -8,9 +8,7 @@ import backend.dao.BookDaoImpl;
 import backend.dao.entity.Books;
 
 public class DeleteBook {
-	public static void deleteBook() {
-		Scanner sc = new Scanner(System.in);
-
+	public static void deleteBook(Scanner sc) {
 		int book_id = HomeMenu.compatibleBookId();
 
 		BookDao dao = new BookDaoImpl();

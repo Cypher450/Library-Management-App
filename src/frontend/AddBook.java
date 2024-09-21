@@ -11,8 +11,7 @@ import backend.utils.DBUtils;
 public class AddBook {
 	
 	
-	public static void addBook() {
-		Scanner sc = new Scanner(System.in);
+	public static void addBook(Scanner sc) {
 		System.out.print("\n Enter the title of the book: ");
 		String title = sc.nextLine();
 
