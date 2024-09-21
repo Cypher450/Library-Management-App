@@ -11,33 +11,110 @@ public class UpdateBook {
 	public static void updateBook() {
 		Scanner sc = new Scanner(System.in);
 
-		int book_id = HomeMenu.compatibleBookId();
-
 		BookDao dao = new BookDaoImpl();
-		try {
-			Books book = dao.showBookById(book_id);
-		} catch (SQLException e1) {
-			e1.printStackTrace();
+		while (true) {
+			System.out.println("\n Choose an option to update:");
+			System.out.println("\n 1. Update Book Name");
+			System.out.println("\n 2. Update Price Of Book");
+			System.out.println("\n 3. Update Author Name");
+			System.out.println("\n 4. Update All Details");
+			System.out.println("\n 5. Exit");
+
+			System.out.print("\n Your option: ");
+			int choice = sc.nextInt();
+			sc.nextLine();
+
+			switch (choice) {
+			case 1:
+				try {
+					int book_id = enterBookId(sc);
+					updateBookName(sc, dao, book_id);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				break;
+			case 2:
+				try {
+					int book_id = enterBookId(sc);
+					updatePriceOfBook(sc, dao, book_id);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				break;
+			case 3:
+				try {
+					int book_id = enterBookId(sc);
+					updateAuthorName(sc, dao, book_id);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				break;
+			case 4:
+				int book_id = enterBookId(sc);
+				updateAllDetails(sc, dao, book_id);
+				break;
+			case 5:
+				return;
+			default:
+				System.out.print("\n Invalid choice! Please choose again.");
+			}
 		}
+	}
 
-		System.out.print("\n Enter name of the new book: ");
-		String name = sc.nextLine();
+	private static int enterBookId(Scanner sc) {
+		System.out.print("\n Enter the book_id of the book that you want to update: ");
+		int book_id = sc.nextInt();
 
-		double price = HomeMenu.compatiblePrice();
+		return book_id;
+	}
 
-		System.out.print("\n Enter the author name of new book: ");
-		String author_name = sc.nextLine();
+	private static void updateAllDetails(Scanner sc, BookDao dao, int book_id) {
+		sc.nextLine();
+		System.out.print("\n Enter new book name: ");
+		String newName = sc.nextLine();
 
-		Books book = new Books(name, price, author_name);
+		double newPrice = HomeMenu.compatiblePrice();
+
+		System.out.print("\n Enter new author name : ");
+		String newAuthor = sc.nextLine();
+
+		Books book = new Books(newName, newPrice, newAuthor);
+
 		try {
 			if (dao.updateBook(book, book_id)) {
-				System.out
-						.println("\n The Book: " + book.getTitle() + " with id: " + book_id + " updated successfully");
+				System.out.println("\n Book all details updated successfully!");
 			} else {
-				System.out.println("\n Can't modify the book with id: " + book_id);
+				System.out.println("\n Could not update the book details.");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 	}
+
+	private static void updateAuthorName(Scanner sc, BookDao dao, int book_id) throws SQLException {
+		sc.nextLine();
+		System.out.print("\n Enter new author name : ");
+		String newAuthor = sc.nextLine();
+		dao.updateAuthorname(book_id, newAuthor);
+		System.out.println("\n Author_name updated successfully.");
+
+	}
+
+	private static void updatePriceOfBook(Scanner sc, BookDao dao, int book_id) throws SQLException {
+
+		double newPrice = HomeMenu.compatiblePrice();
+		dao.updatePriceOfBook(book_id, newPrice);
+		System.out.println("\n Price updated successfully.");
+
+	}
+
+	private static void updateBookName(Scanner sc, BookDao dao, int bookId) throws SQLException {
+		sc.nextLine();
+		System.out.print("\n Enter new book name: ");
+		String newName = sc.nextLine();
+		dao.updateBookName(bookId, newName);
+		System.out.println("\n Book name updated successfully.");
+	}
+
 }
