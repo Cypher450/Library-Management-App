@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Aman3</name>
+	<name>Library</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -14,14 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<filteredResources>
-		<filter>
-			<id>1726932961221</id>
-			<name></name>
-			<type>6</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-			</matcher>
-		</filter>
-	</filteredResources>
 </projectDescription>

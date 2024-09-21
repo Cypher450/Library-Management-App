@@ -10,11 +10,13 @@ import java.util.Scanner;
 import backend.utils.DBUtils;
 
 public class HomeMenu {
+	
+	static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
 		
 		createTableAuto();
 
-		Scanner sc = new Scanner(System.in);
+		
 		int option = -1;
 
 		while (true) {
@@ -96,13 +98,13 @@ public class HomeMenu {
 	private static void handleMenuOption(int option) {
 		switch (option) {
 		case 1:
-			AddBook.addBook();
+			AddBook.addBook(sc);
 			break;
 		case 2:
 			UpdateBook.updateBook();
 			break;
 		case 3:
-			DeleteBook.deleteBook();
+			DeleteBook.deleteBook(sc);
 			break;
 		case 4:
 			ViewBook.viewBook();
