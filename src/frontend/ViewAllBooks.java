@@ -7,8 +7,8 @@ import backend.dao.BookDao;
 import backend.dao.BookDaoImpl;
 
 public class ViewAllBooks {
-	public static void viewAllBooks() {
-		Scanner sc = new Scanner(System.in);
+	public static void viewAllBooks(Scanner sc) {
+//		Scanner sc = new Scanner(System.in);
 
 		while (true) {
 			System.out.println("\n How do you want to display the list?");

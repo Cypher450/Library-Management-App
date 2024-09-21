@@ -1,6 +1,7 @@
 package frontend;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.SQLSyntaxErrorException;
@@ -10,11 +11,13 @@ import java.util.Scanner;
 import backend.utils.DBUtils;
 
 public class HomeMenu {
+	
+	static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
 		
 		createTableAuto();
 
-		Scanner sc = new Scanner(System.in);
+		
 		int option = -1;
 
 		while (true) {
@@ -96,19 +99,19 @@ public class HomeMenu {
 	private static void handleMenuOption(int option) {
 		switch (option) {
 		case 1:
-			AddBook.addBook();
+			AddBook.addBook(sc);
 			break;
 		case 2:
-			UpdateBook.updateBook();
+			UpdateBook.updateBook(sc);
 			break;
 		case 3:
-			DeleteBook.deleteBook();
+			DeleteBook.deleteBook(sc);
 			break;
 		case 4:
-			ViewBook.viewBook();
+			ViewBook.viewBook(sc);
 			break;
 		case 5:
-			ViewAllBooks.viewAllBooks();
+			ViewAllBooks.viewAllBooks(sc);
 			break;
 		case 6:
 
@@ -120,7 +123,7 @@ public class HomeMenu {
 	}
 
 	public static double compatiblePrice() {
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 		double price = 0;
 		boolean validInput = false;
 
@@ -138,7 +141,7 @@ public class HomeMenu {
 	}
 
 	public static int compatibleBookId() {
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 
 		int book_id = 0;
 		boolean validInput = false;

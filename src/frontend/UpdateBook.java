@@ -8,8 +8,10 @@ import backend.dao.BookDaoImpl;
 import backend.dao.entity.Books;
 
 public class UpdateBook {
-	public static void updateBook() {
-		Scanner sc = new Scanner(System.in);
+	
+	
+	public static void updateBook(Scanner sc) {
+		//Scanner sc = new Scanner(System.in);
 
 		BookDao dao = new BookDaoImpl();
 		while (true) {
@@ -58,6 +60,11 @@ public class UpdateBook {
 			default:
 				System.out.print("\n Invalid choice! Please choose again.");
 			}
+
+		try {
+			dao.showBookById(book_id);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
 		}
 	}
 
